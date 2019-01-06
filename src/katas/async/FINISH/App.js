@@ -14,9 +14,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    const url = "https://ghibliapi.herokuapp.com/films";
-
-    this.asyncCall(url);
+    this.asyncCall(this.props.url);
   }
 
   asyncCall(url) {
@@ -56,6 +54,10 @@ export default class App extends Component {
       </main>
     );
   }
+
+  static defaultProps = {
+    url: "https://ghibliapi.herokuapp.com/films"
+  };
 }
 
 class List extends Component {
